@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Saad Digital">
+  <rect width="64" height="64" rx="12" fill="#071112"/>
+  <path d="M14 44V20h17c5.8 0 9.6 3.2 9.6 8.1 0 4.8-3.8 8-9.6 8H23v7.9h-9Zm9-15.1h7.2c1.7 0 2.7-.7 2.7-2s-1-2-2.7-2H23v4Z" fill="#43d7b5"/>
+  <path d="M35 44V20h9.7c8 0 13.3 4.7 13.3 12s-5.3 12-13.3 12H35Zm8.7-7.5h1c3 0 5-1.7 5-4.5s-2-4.5-5-4.5h-1v9Z" fill="#f0b85b"/>
+</svg>

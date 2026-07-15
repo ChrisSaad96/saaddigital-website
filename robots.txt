@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://saaddigital.co.za/sitemap.xml
