@@ -14,7 +14,6 @@ Live site: <https://saaddigital.co.za/>
 - `mivaro-privacy.html` and `mivaro-terms.html` - Mivaro-specific legal pages
 - `splitmate-privacy.html` and `splitmate-terms.html` - SplitMate AI-specific legal pages
 - `support.html` - shared support hub for Mivaro and SplitMate AI
-- `LEGAL_REVIEW_NOTES.md` - internal release-verification questions; do not publish as a linked website page
 - `404.html` - GitHub Pages fallback page
 - `robots.txt` and `sitemap.xml` - search engine indexing files
 - `app-ads.txt` - app advertising verification file
