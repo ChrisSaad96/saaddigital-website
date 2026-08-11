@@ -295,7 +295,9 @@ p {
 }
 
 .hero-actions,
-.store-actions {
+.store-actions,
+.app-links,
+.support-selector {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
@@ -632,6 +634,27 @@ p {
   transform: none;
 }
 
+.app-links {
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+}
+
+.app-links a,
+.text-link {
+  color: var(--accent-strong);
+  font-weight: 800;
+  text-decoration: underline;
+  text-decoration-color: rgba(120, 240, 210, 0.45);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+
+.app-links a:hover,
+.text-link:hover {
+  text-decoration-color: currentColor;
+}
+
 .value-band,
 .contact-band {
   border-block: 1px solid var(--border);
@@ -758,6 +781,56 @@ p {
   grid-template-columns: minmax(0, 1fr);
   gap: 18px;
   padding-bottom: 96px;
+}
+
+.legal-content {
+  max-width: 940px;
+}
+
+.legal-meta {
+  color: var(--text-subtle);
+  font-size: 0.95rem;
+}
+
+.legal-card a:not(.button),
+.support-card a:not(.button) {
+  color: var(--accent-strong);
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-color: rgba(120, 240, 210, 0.45);
+  text-underline-offset: 3px;
+}
+
+.legal-card a:not(.button):hover,
+.support-card a:not(.button):hover {
+  text-decoration-color: currentColor;
+}
+
+.legal-card h3,
+.support-card h3 {
+  margin-top: 24px;
+  font-size: 1.12rem;
+}
+
+.support-selector {
+  margin-top: 28px;
+}
+
+.support-selector .button {
+  min-width: 180px;
+}
+
+.support-section-heading {
+  padding-top: 18px;
+}
+
+.support-section-heading h2 {
+  margin-bottom: 8px;
+  font-size: 2rem;
+}
+
+.support-section-heading p {
+  margin-bottom: 0;
 }
 
 .legal-card,
@@ -1022,6 +1095,7 @@ p {
 
   .hero-actions,
   .store-actions,
+  .support-selector,
   .not-found-actions {
     flex-direction: column;
   }

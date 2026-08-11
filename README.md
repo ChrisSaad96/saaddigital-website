@@ -9,9 +9,12 @@ Live site: <https://saaddigital.co.za/>
 - `index.html` - homepage, apps, about and contact sections
 - `styles.css` - shared visual design system and responsive layout
 - `script.js` - mobile navigation, footer year and reveal animations
-- `privacy.html` - general website privacy policy
-- `terms.html` - general website and app-studio terms
-- `support.html` - support guidance and troubleshooting
+- `privacy.html` - Saad Digital website privacy policy
+- `terms.html` - Saad Digital website terms of use
+- `mivaro-privacy.html` and `mivaro-terms.html` - Mivaro-specific legal pages
+- `splitmate-privacy.html` and `splitmate-terms.html` - SplitMate AI-specific legal pages
+- `support.html` - shared support hub for Mivaro and SplitMate AI
+- `LEGAL_REVIEW_NOTES.md` - internal release-verification questions; do not publish as a linked website page
 - `404.html` - GitHub Pages fallback page
 - `robots.txt` and `sitemap.xml` - search engine indexing files
 - `app-ads.txt` - app advertising verification file
