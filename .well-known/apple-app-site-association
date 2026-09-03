@@ -1,0 +1,21 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": [
+          "2KUFTU8CCC.com.saaddigital.mivaro"
+        ],
+        "components": [
+          {
+            "/": "/r/",
+            "comment": "Canonical Mivaro shared-reminder links with a capability query"
+          },
+          {
+            "/": "/r/*",
+            "comment": "Legacy Mivaro shared-reminder path links"
+          }
+        ]
+      }
+    ]
+  }
+}

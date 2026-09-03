@@ -13,6 +13,9 @@ Live site: <https://saaddigital.co.za/>
 - `terms.html` - Saad Digital website terms of use
 - `mivaro-privacy.html` and `mivaro-terms.html` - Mivaro-specific legal pages
 - `mivaro/delete-account/index.html` - public Mivaro account-deletion instructions
+- `r/index.html` and `r/shared-reminder.js` - privacy-first Mivaro shared-reminder fallback
+- `.well-known/apple-app-site-association` - iOS Universal Link domain association
+- `MIVARO_SHARED_REMINDER_WEB_SETUP.md` - shared-link deployment and owner handoff
 - `splitmate-privacy.html` and `splitmate-terms.html` - SplitMate AI-specific legal pages
 - `support.html` - shared support hub for Mivaro and SplitMate AI
 - `404.html` - GitHub Pages fallback page
@@ -24,6 +27,8 @@ Live site: <https://saaddigital.co.za/>
 ## GitHub Pages deployment
 
 The site is designed to deploy directly from the repository root on the `main` branch. It does not need a backend, database, framework, build command, package install or environment file.
+
+The root `.nojekyll` file is intentional. It ensures GitHub Pages publishes the `.well-known` association directory unchanged.
 
 In GitHub:
 
