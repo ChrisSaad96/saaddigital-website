@@ -567,6 +567,89 @@ p {
     rgba(13, 25, 27, 0.9);
 }
 
+.app-card-mivaro {
+  position: relative;
+  overflow: hidden;
+  border-color: rgba(120, 240, 210, 0.28);
+  background:
+    radial-gradient(circle at 90% 6%, rgba(67, 215, 181, 0.16), transparent 30%),
+    linear-gradient(145deg, rgba(67, 215, 181, 0.1), rgba(13, 25, 27, 0.88)),
+    rgba(13, 25, 27, 0.94);
+}
+
+.app-card-mivaro::after {
+  position: absolute;
+  right: -48px;
+  bottom: -72px;
+  width: 220px;
+  height: 220px;
+  border: 1px solid rgba(120, 240, 210, 0.12);
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 34px rgba(120, 240, 210, 0.025),
+    0 0 0 68px rgba(120, 240, 210, 0.018);
+  content: "";
+  pointer-events: none;
+}
+
+.app-card-mivaro > * {
+  position: relative;
+  z-index: 1;
+}
+
+.product-kicker {
+  margin: 0 0 10px;
+  color: var(--accent-strong);
+  font-size: 0.88rem;
+  font-weight: 850;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.app-card-mivaro h3 {
+  max-width: 620px;
+  margin-bottom: 12px;
+  font-size: clamp(2.2rem, 4vw, 3.75rem);
+}
+
+.product-lead {
+  margin-bottom: 18px;
+  color: var(--text);
+  font-size: 1.15rem;
+  font-weight: 720;
+}
+
+.plan-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 26px;
+}
+
+.plan-card {
+  padding: 18px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: rgba(3, 14, 14, 0.42);
+}
+
+.plan-card-premium {
+  border-color: rgba(120, 240, 210, 0.3);
+  background: rgba(67, 215, 181, 0.075);
+}
+
+.plan-card p {
+  margin-bottom: 0;
+  font-size: 0.94rem;
+}
+
+.plan-card .plan-name {
+  margin-bottom: 7px;
+  color: var(--text);
+  font-size: 1rem;
+  font-weight: 850;
+}
+
 .app-card-compact {
   background:
     linear-gradient(145deg, rgba(240, 184, 91, 0.1), rgba(13, 25, 27, 0.72)),
@@ -856,6 +939,47 @@ p {
   color: var(--text-muted);
 }
 
+.content-layout ol {
+  margin: 0;
+  padding-left: 22px;
+  color: var(--text-muted);
+}
+
+.content-layout ol li + li {
+  margin-top: 8px;
+}
+
+.account-action-card {
+  border-color: rgba(120, 240, 210, 0.28);
+  background:
+    linear-gradient(145deg, rgba(67, 215, 181, 0.09), rgba(13, 25, 27, 0.84)),
+    rgba(13, 25, 27, 0.9);
+}
+
+.account-action-card .eyebrow {
+  margin-bottom: 8px;
+}
+
+.account-steps {
+  margin-bottom: 18px !important;
+}
+
+.action-note {
+  margin-top: 16px;
+  overflow-wrap: anywhere;
+  font-size: 0.94rem;
+}
+
+.legal-card .button {
+  margin-top: 8px;
+  color: var(--accent-ink);
+  text-decoration: none;
+}
+
+.legal-card .button:hover {
+  color: var(--accent-ink);
+}
+
 .content-layout li + li {
   margin-top: 8px;
 }
@@ -1062,7 +1186,8 @@ p {
 
   .apps-grid,
   .value-grid,
-  .feature-list {
+  .feature-list,
+  .plan-grid {
     grid-template-columns: 1fr;
   }
 

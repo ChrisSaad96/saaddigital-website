@@ -12,6 +12,7 @@ Live site: <https://saaddigital.co.za/>
 - `privacy.html` - Saad Digital website privacy policy
 - `terms.html` - Saad Digital website terms of use
 - `mivaro-privacy.html` and `mivaro-terms.html` - Mivaro-specific legal pages
+- `mivaro/delete-account/index.html` - public Mivaro account-deletion instructions
 - `splitmate-privacy.html` and `splitmate-terms.html` - SplitMate AI-specific legal pages
 - `support.html` - shared support hub for Mivaro and SplitMate AI
 - `404.html` - GitHub Pages fallback page
