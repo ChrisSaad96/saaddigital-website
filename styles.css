@@ -999,17 +999,22 @@ p {
 
 .share-page main {
   display: grid;
+  width: 100%;
+  grid-template-columns: minmax(0, 1fr);
   min-height: calc(100vh - var(--header-height));
   align-items: center;
+  justify-items: center;
 }
 
 .share-shell {
-  width: min(100% - 40px, 720px);
+  width: min(720px, calc(100% - 40px));
+  margin-inline: auto;
   padding: 72px 0;
 }
 
 .share-card {
   position: relative;
+  width: 100%;
   overflow: hidden;
   padding: clamp(28px, 6vw, 52px);
   border: 1px solid rgba(120, 240, 210, 0.28);
@@ -1315,6 +1320,15 @@ p {
   .legal-card,
   .support-card {
     padding: 22px;
+  }
+
+  .share-shell {
+    width: min(720px, calc(100% - 28px));
+    padding: 48px 0;
+  }
+
+  .share-card {
+    padding: 28px 22px;
   }
 
   .hero-visual,
