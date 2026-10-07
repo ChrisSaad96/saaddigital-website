@@ -619,6 +619,22 @@ p {
   font-weight: 720;
 }
 
+.store-actions-featured {
+  margin: 26px 0 4px;
+}
+
+.app-card-mivaro .store-button {
+  border-color: rgba(120, 240, 210, 0.36);
+  background: rgba(67, 215, 181, 0.12);
+  color: var(--text);
+}
+
+.app-card-mivaro .store-button:hover,
+.app-card-mivaro .store-button:focus-visible {
+  border-color: rgba(120, 240, 210, 0.62);
+  background: rgba(67, 215, 181, 0.2);
+}
+
 .plan-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));

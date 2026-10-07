@@ -12,8 +12,8 @@
 - Android package: `com.saaddigital.mivaro`
 - Google Play App Signing SHA-256: pending
 - Live `/.well-known/assetlinks.json`: intentionally not published
-- Mivaro App Store URL: pending
-- Mivaro Google Play URL: pending
+- Mivaro App Store URL: live (`https://apps.apple.com/us/app/mivaro/id6802352751`)
+- Mivaro Google Play URL: live (`https://play.google.com/store/apps/details?id=com.saaddigital.mivaro`)
 - Shared-reminder resolver: none configured for this website
 
 The root `.nojekyll` marker ensures GitHub Pages publishes the `.well-known` directory instead of excluding it as a dot-prefixed directory.
@@ -28,12 +28,12 @@ The canonical query URL receives the generic Mivaro rich-preview metadata from a
 
 ## Store and post-install flow
 
-Verified public store URLs can be added to `MIVARO_STORE_URLS` in `r/shared-reminder.js`. Empty values keep store actions hidden. On iPhone/iPad only the configured App Store action is shown; on Android only Google Play is shown; desktop shows both configured actions.
+The verified public store URLs are configured in `MIVARO_STORE_URLS` in `r/shared-reminder.js`. On iPhone/iPad only the App Store action is shown; on Android only Google Play is shown; desktop shows both actions.
 
 There is no automatic deferred deep linking. The honest recovery flow is:
 
 1. Open the canonical shared link and reach the HTTP 200 fallback page.
-2. Install Mivaro when a verified store action is available.
+2. Install Mivaro from the App Store or Google Play action.
 3. Return to the original browser tab.
 4. Select **Open in Mivaro**.
 5. The browser opens `mivaro://r/<opaque-capability>` so Mivaro can present its review flow.
@@ -70,6 +70,5 @@ Use the Play App Signing certificate SHA-256 shown by Google Play Console, not a
 3. Validate the live AASA through Apple's associated-domain tooling/CDN and test on a signed iOS build.
 4. Obtain the Google Play App Signing SHA-256 from Play Console.
 5. Replace the Android placeholder locally, publish the final `/.well-known/assetlinks.json`, and recheck App Link verification.
-6. Add verified Mivaro App Store and Google Play URLs to `r/shared-reminder.js` after the listings become public.
-7. Test installed and not-installed flows on physical iOS and Android devices.
-8. Decide whether the legacy-link initial-404/rich-preview limitation is acceptable or warrants hosting with wildcard rewrites.
+6. Test installed and not-installed flows on physical iOS and Android devices.
+7. Decide whether the legacy-link initial-404/rich-preview limitation is acceptable or warrants hosting with wildcard rewrites.

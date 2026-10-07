@@ -3,11 +3,11 @@
 
   var TOKEN_PATTERN = /^[A-Za-z0-9_-]{22,64}$/;
 
-  // Add verified public store URLs here after launch. Empty values deliberately
-  // keep the related actions hidden; this is not automatic deferred deep linking.
+  // Verified public store URLs support the manual post-install recovery flow.
+  // This is not automatic deferred deep linking.
   var MIVARO_STORE_URLS = Object.freeze({
-    appStore: "",
-    playStore: "",
+    appStore: "https://apps.apple.com/us/app/mivaro/id6802352751",
+    playStore: "https://play.google.com/store/apps/details?id=com.saaddigital.mivaro",
   });
 
   var parameters = new URLSearchParams(window.location.search);
