@@ -49,14 +49,15 @@
     navToggle.addEventListener("click", toggleMenu);
 
     navMenu.addEventListener("click", function (event) {
-      if (event.target instanceof HTMLAnchorElement) {
+      if (event.target instanceof Element && event.target.closest("a")) {
         closeMenu();
       }
     });
 
     document.addEventListener("keydown", function (event) {
-      if (event.key === "Escape") {
+      if (event.key === "Escape" && navToggle.getAttribute("aria-expanded") === "true") {
         closeMenu();
+        navToggle.focus();
       }
     });
   }

@@ -1,12 +1,12 @@
 # Saad Digital Website
 
-This repository contains the static website for Saad Digital, an independent app studio creating useful mobile apps for everyday life.
+This repository contains the static website for Saad Digital, an independent digital product studio designing, developing and publishing apps and games.
 
 Live site: <https://saaddigital.co.za/>
 
 ## Main files
 
-- `index.html` - homepage, apps, about and contact sections
+- `index.html` - homepage, Products (Apps and Games), studio and contact sections; the existing `#apps` anchor is retained
 - `styles.css` - shared visual design system and responsive layout
 - `script.js` - mobile navigation, footer year and reveal animations
 - `privacy.html` - Saad Digital website privacy policy
@@ -17,7 +17,12 @@ Live site: <https://saaddigital.co.za/>
 - `.well-known/apple-app-site-association` - iOS Universal Link domain association
 - `MIVARO_SHARED_REMINDER_WEB_SETUP.md` - shared-link deployment and owner handoff
 - `splitmate-privacy.html` and `splitmate-terms.html` - SplitMate AI-specific legal pages
-- `support.html` - shared support hub for Mivaro and SplitMate AI
+- `sortbound-privacy.html` and `sortbound-terms.html` - pre-release Sortbound-specific legal pages
+- `support.html` - shared support hub for Mivaro, SplitMate AI and Sortbound
+- `assets/` - original Mivaro and SplitMate icons, copied without recolouring
+- `scripts/preview.mjs` - dependency-free local preview server (Node.js 22+)
+- `scripts/check.mjs` and `scripts/check-browser.mjs` - static and browser validation
+- `SORTBOUND_WEBSITE_REVIEW.md` - implementation evidence and publisher/release review items
 - `404.html` - GitHub Pages fallback page
 - `robots.txt` and `sitemap.xml` - search engine indexing files
 - `app-ads.txt` - app advertising verification file
@@ -60,16 +65,33 @@ Do not commit secret keys, private API keys, `.env` files, service-account files
 
 ## Local preview
 
-You can preview the site with any static server from the repository root, for example:
+Run from the repository root with Node.js 22 or later:
 
 ```bash
-python -m http.server 8080
+node scripts/preview.mjs
 ```
 
 Then open:
 
 ```txt
-http://localhost:8080/
+http://127.0.0.1:8080/
 ```
 
-VS Code Live Server or another simple static file server will also work.
+Use `node scripts/preview.mjs 8081` if port 8080 is occupied. Press Ctrl+C to stop. This server reproduces the site's custom 404 response for legacy shared-link checks and binds only to the local computer. It is a local tool and does not change GitHub Pages hosting.
+
+## Validation
+
+There is no production build step: the tracked HTML, CSS and assets are the production files. No framework or dependency installation is required.
+
+```powershell
+node scripts/check.mjs
+node --check script.js
+node --check r/shared-reminder.js
+node --check scripts/preview.mjs
+node --check scripts/check.mjs
+node --check scripts/check-browser.mjs
+node scripts/check-browser.mjs
+git diff --check
+```
+
+The browser check uses an installed Chrome or Edge in a new temporary test profile. Set `CHROME_PATH` if it is installed elsewhere. It starts and stops its own local preview server, checks all 13 HTML pages at 1920, 1440, 1024, 768, 390 and 320 pixels, validates the mobile menu and Mivaro sharing behaviour, and writes review screenshots to the temporary directory it prints. It does not use or clear personal browser storage. Store links must also be checked against their public listings when content changes.
