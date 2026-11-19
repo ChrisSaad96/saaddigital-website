@@ -57,7 +57,13 @@ try {
     assert.deepEqual(result.brokenImages,[],`${route}: missing image`);
     return result;
   }
-  const routes=['/','/support.html','/privacy.html','/terms.html','/mivaro-privacy.html','/mivaro-terms.html','/splitmate-privacy.html','/splitmate-terms.html','/sortbound-privacy.html','/sortbound-terms.html','/mivaro/delete-account','/r/?c=AbCdEfGhIjKlMnOpQrStUv','/404.html'];
+  const routes=['/','/support.html','/privacy.html','/terms.html','/mivaro-privacy.html','/mivaro-terms.html','/splitmate-privacy.html','/splitmate-terms.html','/sortbound-privacy.html','/sortbound-terms.html','/sortbound/delete-account/','/mivaro/delete-account','/r/?c=AbCdEfGhIjKlMnOpQrStUv','/404.html'];
+  const deletionUrl = origin + '/sortbound/delete-account/';
+  const directDeletionResponse = await fetch(deletionUrl, {redirect:'manual', credentials:'omit'});
+  assert.equal(directDeletionResponse.status, 200, 'Public deletion page must load directly without login or redirect');
+  assert.equal(directDeletionResponse.headers.get('location'), null, 'Deletion page must not redirect to login or 404');
+  assert.equal(directDeletionResponse.url, deletionUrl);
+  for (const route of routes) assert.equal((await fetch(origin+route)).status, 200, `${route}: HTTP response`);
   let renders=0;
   for(const width of [1920,1440,1024,768,390,320]) {
     for(const route of routes) { await visit(route,width); renders++; }
@@ -86,6 +92,15 @@ try {
   assert(await evaluate(`document.activeElement===document.querySelector('[data-nav-toggle]')`),'Escape must return focus to menu button');
   await evaluate(`document.querySelector('[data-nav-toggle]').click(); document.querySelector('[data-nav-menu] a:last-child span').click()`);
   assert(await evaluate(`document.querySelector('[data-nav-toggle]').getAttribute('aria-expanded')==='false'`),'Clicking nested link content must close menu');
+  await visit('/sortbound/delete-account/',390);
+  assert(await evaluate(`location.pathname==='/sortbound/delete-account/' && document.querySelector('h1')?.textContent==='Delete your account.'`), 'Exact public deletion path must render the intended page');
+  await evaluate(`window.requestHref=null;document.querySelector('#request-account-deletion').addEventListener('click',event=>{event.preventDefault();window.requestHref=event.currentTarget.getAttribute('href');});document.querySelector('#request-account-deletion').click()`);
+  assert.equal(await evaluate('window.requestHref'), 'mailto:saaddigitalapps@gmail.com?subject=Sortbound%20Account%20Deletion%20Request', 'Email action must open a compose request, not submit deletion');
+  assert(await evaluate(`document.querySelectorAll('form,input').length===0 && !document.querySelector('[role="status"]')`), 'Information page must not collect credentials or announce fake success');
+  for (const route of ['/sortbound-privacy.html','/sortbound-terms.html','/support.html','/']) {
+    await visit(route,390);
+    assert(await evaluate(`!![...document.querySelectorAll('a')].find(a=>a.getAttribute('href')==='/sortbound/delete-account/')`), `${route}: deletion link`);
+  }
   async function capture(name,route,width,selector) {
     await visit(route,width);
     if(selector) await evaluate(`document.querySelector(${JSON.stringify(selector)}).scrollIntoView()`);
@@ -102,6 +117,9 @@ try {
   await capture('legal-phone','/sortbound-privacy.html',320);
   await capture('support-tablet','/support.html',768);
   await capture('share-desktop','/r/?c=AbCdEfGhIjKlMnOpQrStUv',1920);
+  await capture('sortbound-deletion-desktop','/sortbound/delete-account/',1440);
+  await capture('sortbound-deletion-phone','/sortbound/delete-account/',390);
+  await capture('sortbound-deletion-email-small-phone','/sortbound/delete-account/',320,'#delete-email');
   assert.deepEqual(errors,[],'Browser runtime/CSP errors');
   console.log(`Passed ${renders} page/viewport renders; shared-link centring, privacy, validation, legacy recovery and mobile menu checks. No browser errors.`);
   console.log(`Visual review screenshots: ${temporary}`);

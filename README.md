@@ -18,6 +18,8 @@ Live site: <https://saaddigital.co.za/>
 - `MIVARO_SHARED_REMINDER_WEB_SETUP.md` - shared-link deployment and owner handoff
 - `splitmate-privacy.html` and `splitmate-terms.html` - SplitMate AI-specific legal pages
 - `sortbound-privacy.html` and `sortbound-terms.html` - pre-release Sortbound-specific legal pages
+- `sortbound/delete-account/index.html` - Sortbound in-game deletion instructions and email request route
+- `SORTBOUND_ACCOUNT_DELETION_REVIEW.md` - current deletion evidence, operational limits and launch prerequisites
 - `support.html` - shared support hub for Mivaro, SplitMate AI and Sortbound
 - `assets/` - original Mivaro and SplitMate icons, copied without recolouring
 - `scripts/preview.mjs` - dependency-free local preview server (Node.js 22+)
@@ -94,4 +96,4 @@ node scripts/check-browser.mjs
 git diff --check
 ```
 
-The browser check uses an installed Chrome or Edge in a new temporary test profile. Set `CHROME_PATH` if it is installed elsewhere. It starts and stops its own local preview server, checks all 13 HTML pages at 1920, 1440, 1024, 768, 390 and 320 pixels, validates the mobile menu and Mivaro sharing behaviour, and writes review screenshots to the temporary directory it prints. It does not use or clear personal browser storage. Store links must also be checked against their public listings when content changes.
+The browser check uses an installed Chrome or Edge in a new temporary test profile. Set `CHROME_PATH` if it is installed elsewhere. It starts and stops its own local preview server, checks all 14 HTML pages at 1920, 1440, 1024, 768, 390 and 320 pixels, validates the mobile menu, Mivaro sharing behaviour and Sortbound deletion links/email action, and writes review screenshots to the temporary directory it prints. It does not use or clear personal browser storage or send an email/deletion request. Store links must also be checked against their public listings when content changes.
